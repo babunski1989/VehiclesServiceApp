@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6B6E98E-CDF7-4A69-97EC-09A06D955947}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VehiclesServiceApp</RootNamespace>
+    <AssemblyName>VehiclesServiceApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buisenss\DTO\BaseDTO.cs" />
+    <Compile Include="Buisenss\DTO\ManufacturerDTO.cs" />
+    <Compile Include="Buisenss\DTO\ModelDTO.cs" />
+    <Compile Include="Buisenss\DTO\ServiceDTO.cs" />
+    <Compile Include="Buisenss\DTO\ServiceTypeDTO.cs" />
+    <Compile Include="Buisenss\DTO\VehicleDTO.cs" />
+    <Compile Include="Buisenss\EfOperation.cs" />
+    <Compile Include="Buisenss\Operation.cs" />
+    <Compile Include="Buisenss\OperationManager.cs" />
+    <Compile Include="Buisenss\OperationResult.cs" />
+    <Compile Include="Buisenss\Operations\Vehicles\AddVehicleOperation.cs" />
+    <Compile Include="Buisenss\Operations\Vehicles\DeleteOperation.cs" />
+    <Compile Include="Buisenss\Operations\Vehicles\DeleteVehicleOperation.cs" />
+    <Compile Include="Buisenss\Operations\Manufacturers\DeleteManufacturerOperation.cs" />
+    <Compile Include="Buisenss\Operations\Manufacturers\AddManufacturerOperation.cs" />
+    <Compile Include="Buisenss\Operations\Manufacturers\GetManufacturersOperation.cs" />
+    <Compile Include="Buisenss\Operations\ServiceBook\AddServiceOperation.cs" />
+    <Compile Include="Buisenss\Operations\ServiceBook\FinishServiceOperation.cs" />
+    <Compile Include="Buisenss\Operations\ServiceBook\GetServicesOperation.cs" />
+    <Compile Include="Buisenss\Operations\Manufacturers\UpdateManufacturers.cs" />
+    <Compile Include="Buisenss\Operations\ServiceBook\GetServiceTypesOperation.cs" />
+    <Compile Include="Buisenss\Operations\ServiceBook\GetVehiclesOperation.cs" />
+    <Compile Include="Data\CarServiceEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarServiceEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CarServiceEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CarServiceEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CarServiceEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Manufacturer.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Model.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Registration.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RegistrationPlate.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ServiceSchedule.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ServiceType.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sysdiagram.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\User.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\UserUseCase.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Vehicle.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\VehicleType.cs">
+      <DependentUpon>CarServiceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Manufacturers\AddManufacturerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Manufacturers\AddManufacturerForm.Designer.cs">
+      <DependentUpon>AddManufacturerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Manufacturers\EditManufacturerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Manufacturers\EditManufacturerForm.Designer.cs">
+      <DependentUpon>EditManufacturerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Manufacturers\ManufacturersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Manufacturers\ManufacturersForm.Designer.cs">
+      <DependentUpon>ManufacturersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ServiceBook\FinishServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ServiceBook\FinishServiceForm.Designer.cs">
+      <DependentUpon>FinishServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ServiceBook\ScheduleServiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ServiceBook\ScheduleServiceForm.Designer.cs">
+      <DependentUpon>ScheduleServiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ServiceBook\ServiceBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ServiceBook\ServiceBookForm.Designer.cs">
+      <DependentUpon>ServiceBookForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Vehicles\AddVehicleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Vehicles\AddVehicleForm.Designer.cs">
+      <DependentUpon>AddVehicleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buisenss\Operations\GetModelsOperation.cs" />
+    <Compile Include="GUI\Vehicles\VehiclesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Vehicles\VehiclesForm.Designer.cs">
+      <DependentUpon>VehiclesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Manufacturers\AddManufacturerForm.resx">
+      <DependentUpon>AddManufacturerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Manufacturers\EditManufacturerForm.resx">
+      <DependentUpon>EditManufacturerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Manufacturers\ManufacturersForm.resx">
+      <DependentUpon>ManufacturersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ServiceBook\FinishServiceForm.resx">
+      <DependentUpon>FinishServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ServiceBook\ScheduleServiceForm.resx">
+      <DependentUpon>ScheduleServiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ServiceBook\ServiceBookForm.resx">
+      <DependentUpon>ServiceBookForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Vehicles\AddVehicleForm.resx">
+      <DependentUpon>AddVehicleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Vehicles\VehiclesForm.resx">
+      <DependentUpon>VehiclesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EntityDeploy Include="Data\CarServiceEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CarServiceEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\CarServiceEntities.edmx.diagram">
+      <DependentUpon>CarServiceEntities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\CarServiceEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CarServiceEntities.Context.cs</LastGenOutput>
+      <DependentUpon>CarServiceEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\CarServiceEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CarServiceEntities.edmx</DependentUpon>
+      <LastGenOutput>CarServiceEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
